@@ -1,5 +1,7 @@
 @import url("[https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap](https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap)");
-
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: "Inter", sans-serif;
   margin: 0;
@@ -372,3 +374,4 @@ main {
 .terms-section a:hover {
   text-decoration: underline;
 }
+
