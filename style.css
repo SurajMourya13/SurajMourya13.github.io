@@ -22,7 +22,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  position: relative; /* Added for mobile menu positioning */
+  position: relative; 
 }
 .logo1 {
   text-decoration: none;
@@ -48,13 +48,11 @@ nav a,
   font-size: 1rem;
   padding: 8px 16px;
   border-radius: 20px;
-  /* Rounded edges */
   transition: background-color 0.3s ease-in-out;
 }
 
 nav a:hover {
   background-color: #d2cece;
-  /* Light gray background */
   text-decoration: none;
 }
 
@@ -129,7 +127,7 @@ nav a:hover {
   margin: 0px 20px 0px 0px;
 }
 
-/* Hamburger Button (Hidden by Default) */
+/* Hamburger Button */
 .hamburger-btn {
   display: none; /* Hidden on desktop */
   font-size: 1.8rem;
@@ -151,8 +149,8 @@ h1 {
 /* Main Section */
 main {
   padding: 20px;
-  width: 100vw; /* Full width */
-  height: 100vh; /* Full height */
+  width: 100vw; 
+  height: 100vh; 
   margin: 0;
   box-sizing: border-box;
 }
@@ -180,12 +178,12 @@ main {
   padding: 10px;
   gap: 15px;
   white-space: nowrap;
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar in Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
 }
 
 .cards::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in Chrome/Safari */
+  display: none; 
 }
 
 /* Stock Card */
@@ -248,103 +246,103 @@ main {
 
 /* Logo & Name */
 .stock-logo {
-  width: 40px; /* Keeps logos uniform */
-  height: 40px; /* Sets a fixed height for better alignment */
-  object-fit: contain; /* Prevents distortion while fitting within the set dimensions */
-  display: block; /* Ensures proper spacing */
+  width: 40px; 
+  height: 40px; 
+  object-fit: contain; 
+  display: block; 
 }
 
 /* Center-align text and logo properly */
 .card-header {
   display: flex;
-  align-items: center; /* Aligns logo and text vertically */
-  gap: 10px; /* Adds spacing between logo and text */
+  align-items: center; 
+  gap: 10px; 
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
   header {
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-    justify-content: center; /* Center content on smaller screens */
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .logo1 {
-    order: 1; /* Keep logo first */
-    margin-right: auto; /* Push logo to the left */
+    order: 1; 
+    margin-right: auto; 
   }
 
   .hamburger-btn {
-    display: block; /* Show hamburger button on mobile */
-    order: 2; /* Position hamburger button */
-    margin-left: auto; /* Push to the right */
+    display: block; 
+    order: 2; 
+    margin-left: auto; 
   }
 
   nav {
-    display: none; /* Hide nav by default on mobile */
+    display: none; 
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: 100%; /* Position below header */
+    top: 100%;
     left: 0;
     background: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px 0; /* Adjust padding for mobile nav */
+    padding: 10px 0; 
     z-index: 999;
-    align-items: center; /* Center nav items */
+    align-items: center; 
   }
 
   nav.active {
-    display: flex; /* Show nav when active */
+    display: flex;
   }
 
   nav a,
   .dropdown {
-    width: calc(100% - 20px); /* Full width for links with padding */
+    width: calc(100% - 20px);
     text-align: center;
-    padding: 10px 0; /* Adjust padding for mobile links */
-    margin-bottom: 5px; /* Spacing between links */
+    padding: 10px 0;
+    margin-bottom: 5px; 
   }
 
   .search-container {
-    width: calc(100% - 40px); /* Adjust width for mobile */
-    margin-bottom: 10px; /* Space below search bar */
+    width: calc(100% - 40px); 
+    margin-bottom: 10px; 
   }
 
   .search-container input {
-    width: 100%; /* Full width input */
+    width: 100%; 
   }
 
   .user-icon {
-    margin: 10px 0; /* Adjust margin for mobile */
+    margin: 10px 0;
   }
 
   .dropdown-menu {
-    position: static; /* Make dropdown full width and flow in document */
-    box-shadow: none; /* Remove shadow for mobile dropdown */
+    position: static; 
+    box-shadow: none; 
     padding: 0;
     border-radius: 0;
-    width: 100%; /* Full width for dropdown menu */
+    width: 100%; 
   }
 
   .dropdown-menu a {
-    padding: 8px 0; /* Adjust padding for dropdown items */
+    padding: 8px 0; 
   }
 
   h1 {
-    font-size: 2rem; /* Smaller font size for h1 on mobile */
+    font-size: 2rem; 
     text-align: center;
   }
 
   main {
-    padding: 10px; /* Reduce main padding on mobile */
+    padding: 10px; 
   }
 
   .cards-container {
-    padding: 10px 0; /* Adjust cards container padding */
+    padding: 10px 0; 
   }
 
   .card {
-    min-width: 250px; /* Adjust min-width for cards on smaller screens */
+    min-width: 250px; 
   }
 
   .scroll-btn {
@@ -374,4 +372,5 @@ main {
 .terms-section a:hover {
   text-decoration: underline;
 }
+
 
