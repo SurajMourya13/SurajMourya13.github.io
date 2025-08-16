@@ -234,38 +234,43 @@
       }
 
       /* Responsive Styles for Mobile */
-      @media (max-width: 768px) {
-        body {
-          flex-direction: column;
-          background-image: url(img/space-phone.webp);
-        }
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    background-image: url(img/space-phone.webp);
+  }
 
-        .left {
-          flex: 0.5;
-          min-height: 200px;
-        }
+  .left {
+    flex: 0.5;
+    min-height: 200px;
+  }
 
-        .left h1 {
-          color: white;
-        }
+  /* This is the new rule to hide the text */
+  .hero {
+    display: none;
+  }
 
-        .right {
-          flex: 1.5;
-          justify-content: flex-start;
-          padding: 50px 20px;
-        }
+  .left h1 {
+    color: white;
+  }
 
-        .close-btn {
-          top: 20px;
-          right: 20px;
-        }
+  .right {
+    flex: 1.5;
+    justify-content: flex-start;
+    padding: 50px 20px;
+  }
 
-        .message-box {
-          width: calc(100% - 40px);
-          left: 50%;
-          transform: translateX(-50%);
-        }
-      }
+  .close-btn {
+    top: 20px;
+    right: 20px;
+  }
+
+  .message-box {
+    width: calc(100% - 40px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
     </style>
   </head>
   <body>
@@ -411,3 +416,4 @@
     </script>
   </body>
 </html>
+
