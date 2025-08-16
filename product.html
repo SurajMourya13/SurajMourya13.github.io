@@ -4,25 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-    rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
     <title>StockHub</title>
     <style>
-
-      header{
-        padding: 8px 20px;
+      /* Global Styles */
+      * {
+        box-sizing: border-box;
       }
-      .logo1 {
-    text-decoration: none;
-}
 
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+      }
+
+      /* --- Header & Navigation (Desktop) --- */
+      header {
+        padding: 8px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .logo1 {
+        text-decoration: none;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #000;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .hamburger-btn {
+        display: none; /* Hidden on desktop */
+      }
+
+      /* --- Grid Layout (Desktop) --- */
       .grid-container {
         display: grid;
-        grid-template-columns: 3fr 1fr; /* Chart takes 75%, sidebar 25% */
+        grid-template-columns: 3fr 1fr;
         grid-template-rows: auto auto;
         gap: 10px;
-        width: 100vw;
+        width: 100%;
         height: 95vh;
         padding: 10px;
         box-sizing: border-box;
@@ -50,41 +89,107 @@
         grid-row: 2 / 3;
         height: 50%;
       }
+
+      /* --- Responsive Styles (Mobile) --- */
+      @media (max-width: 768px) {
+        /* Header & Navigation */
+        header {
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: flex-start;
+          padding: 10px;
+        }
+
+        .hamburger-btn {
+          display: block; /* Show on mobile */
+          font-size: 1.8rem;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: #000;
+        }
+
+        nav {
+          display: none; /* Hide nav by default */
+          flex-direction: column;
+          width: 100%;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: #fff;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          z-index: 10;
+          padding: 10px;
+        }
+
+        nav.active {
+          display: flex; /* Show nav when active */
+        }
+
+        nav .search-container,
+        nav .user-icon,
+        nav a {
+          width: 100%;
+          margin: 5px 0;
+          text-align: center;
+        }
+
+        /* Grid Layout */
+        .grid-container {
+          display: block; /* Forces widgets to stack vertically */
+          height: auto;
+          overflow-x: hidden;
+        }
+
+        .chart-widget,
+        .market-overview,
+        .technical-analysis {
+          width: 100%;
+          margin-bottom: 10px;
+
+          /* Set a fixed height for the container */
+          height: 500px;
+        }
+      }
     </style>
   </head>
   <body>
     <header>
       <a href="index.html" class="logo1">
-
-          <div class="logo">STOCK HUB</div>
+        <div class="logo">STOCK HUB</div>
       </a>
-    <nav>
-      <div class="search-container">
-        <input type="text" id="searchBar" placeholder="Search stocks..." onkeyup="searchStocks()">
-        <button class="search-btn"><i class="fa fa-search"></i></button> 
-      </div>
-      <div class="user-icon">
-        <a href="signinpage.html">
-          <i class="fa fa-user"></i> 
-        </a>
-      <!-- Or use an <img> -->
-  </div>
-      <a href="product.html">Products</a>
-      <a href="stockhub.html">Markets</a>
-      <a href="news.html" target="_blank">News</a>
-      <a href="brokerpage.html">Brokers</a>
-      <div class="dropdown">
-        <a href="#">More</a>
-        <div class="dropdown-menu">
-             <a href="#">Settings</a>
-              <a href="#">Help</a>
+
+      <button class="hamburger-btn" onclick="toggleMenu()">☰</button>
+
+      <nav id="mobileNav">
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchBar"
+            placeholder="Search stocks..."
+            onkeyup="searchStocks()"
+          />
+          <button class="search-btn"><i class="fa fa-search"></i></button>
         </div>
-      </div>
-    </nav>
-    
-  </header>
+        <div class="user-icon">
+          <a href="signinpage.html">
+            <i class="fa fa-user"></i>
+          </a>
+        </div>
+        <a href="product.html">Products</a>
+        <a href="stockhub.html">Markets</a>
+        <a href="news.html" target="_blank">News</a>
+        <a href="brokerpage.html">Brokers</a>
+        <div class="dropdown">
+          <a href="#">More</a>
+          <div class="dropdown-menu">
+            <a href="#">Settings</a>
+            <a href="#">Help</a>
+          </div>
+        </div>
+      </nav>
+    </header>
     <div class="grid-container">
-      <!-- First Widget (Main Chart) -->
       <div class="tradingview-widget-container chart-widget">
         <div class="tradingview-widget-container__widget"></div>
         <script
@@ -93,25 +198,25 @@
           async
         >
           {
-          "autosize": true,
-          "symbol": "NASDAQ:AAPL",
-          "interval": "D",
-          "timezone": "Etc/UTC",
-          "theme": "light",
-          "style": "1",
-          "locale": "en",
-          "hide_side_toolbar": false,
-          "allow_symbol_change": true,
-          "calendar": false,
-          "show_popup_button": true,
-          "popup_width": "1000",
-          "popup_height": "650",
-          "support_host": "https://www.tradingview.com"
+            "autosize": false, /* CHANGED: Set to false for a fixed height */
+            "height": "500", /* CHANGED: Set to match the CSS height */
+            "symbol": "NASDAQ:AAPL",
+            "interval": "D",
+            "timezone": "Etc/UTC",
+            "theme": "light",
+            "style": "1",
+            "locale": "en",
+            "hide_side_toolbar": false,
+            "allow_symbol_change": true,
+            "calendar": false,
+            "show_popup_button": true,
+            "popup_width": "1000",
+            "popup_height": "650",
+            "support_host": "https://www.tradingview.com"
           }
         </script>
       </div>
 
-      <!-- Second Widget (Market Overview) -->
       <div class="tradingview-widget-container market-overview">
         <div class="tradingview-widget-container__widget"></div>
         <script
@@ -120,138 +225,68 @@
           async
         >
           {
-          "colorTheme": "light",
-          "dateRange": "12M",
-          "showChart": false,
-          "locale": "en",
-          "largeChartUrl": "",
-          "isTransparent": false,
-          "showSymbolLogo": true,
-          "showFloatingTooltip": false,
-          "width": "100%",
-          "height": "100%",
-          "tabs": [
-          {
-            "title": "Indices",
-            "symbols": [
+            "colorTheme": "light",
+            "dateRange": "12M",
+            "showChart": false,
+            "locale": "en",
+            "largeChartUrl": "",
+            "isTransparent": false,
+            "showSymbolLogo": true,
+            "showFloatingTooltip": false,
+            "width": "100%",
+            "height": "500", /* CHANGED: Set to match the CSS height */
+            "tabs": [
               {
-                "s": "FOREXCOM:SPXUSD",
-                "d": "S&P 500 Index"
+                "title": "Indices",
+                "symbols": [
+                  { "s": "FOREXCOM:SPXUSD", "d": "S&P 500 Index" },
+                  { "s": "FOREXCOM:NSXUSD", "d": "US 100 Cash CFD" },
+                  { "s": "FOREXCOM:DJI", "d": "Dow Jones Industrial Average Index" },
+                  { "s": "INDEX:NKY", "d": "Japan 225" },
+                  { "s": "INDEX:DEU40", "d": "DAX Index" },
+                  { "s": "FOREXCOM:UKXGBP", "d": "FTSE 100 Index" }
+                ],
+                "originalTitle": "Indices"
               },
               {
-                "s": "FOREXCOM:NSXUSD",
-                "d": "US 100 Cash CFD"
+                "title": "Futures",
+                "symbols": [
+                  { "s": "CME_MINI:ES1!", "d": "S&P 500" },
+                  { "s": "CME:6E1!", "d": "Euro" },
+                  { "s": "COMEX:GC1!", "d": "Gold" },
+                  { "s": "NYMEX:CL1!", "d": "WTI Crude Oil" },
+                  { "s": "NYMEX:NG1!", "d": "Gas" },
+                  { "s": "CBOT:ZC1!", "d": "Corn" }
+                ],
+                "originalTitle": "Futures"
               },
               {
-                "s": "FOREXCOM:DJI",
-                "d": "Dow Jones Industrial Average Index"
+                "title": "Bonds",
+                "symbols": [
+                  { "s": "CBOT:ZB1!", "d": "T-Bond" },
+                  { "s": "CBOT:UB1!", "d": "Ultra T-Bond" },
+                  { "s": "EUREX:FGBL1!", "d": "Euro Bund" },
+                  { "s": "EUREX:FBTP1!", "d": "Euro BTP" },
+                  { "s": "EUREX:FGBM1!", "d": "Euro BOBL" }
+                ],
+                "originalTitle": "Bonds"
               },
               {
-                "s": "INDEX:NKY",
-                "d": "Japan 225"
-              },
-              {
-                "s": "INDEX:DEU40",
-                "d": "DAX Index"
-              },
-              {
-                "s": "FOREXCOM:UKXGBP",
-                "d": "FTSE 100 Index"
+                "title": "Forex",
+                "symbols": [
+                  { "s": "FX:EURUSD", "d": "EUR to USD" },
+                  { "s": "FX:GBPUSD", "d": "GBP to USD" },
+                  { "s": "FX:USDJPY", "d": "USD to JPY" },
+                  { "s": "FX:USDCHF", "d": "USD to CHF" },
+                  { "s": "FX:AUDUSD", "d": "AUD to USD" },
+                  { "s": "FX:USDCAD", "d": "USD to CAD" }
+                ],
+                "originalTitle": "Forex"
               }
-            ],
-            "originalTitle": "Indices"
-          },
-          {
-            "title": "Futures",
-            "symbols": [
-              {
-                "s": "CME_MINI:ES1!",
-                "d": "S&P 500"
-              },
-              {
-                "s": "CME:6E1!",
-                "d": "Euro"
-              },
-              {
-                "s": "COMEX:GC1!",
-                "d": "Gold"
-              },
-              {
-                "s": "NYMEX:CL1!",
-                "d": "WTI Crude Oil"
-              },
-              {
-                "s": "NYMEX:NG1!",
-                "d": "Gas"
-              },
-              {
-                "s": "CBOT:ZC1!",
-                "d": "Corn"
-              }
-            ],
-            "originalTitle": "Futures"
-          },
-          {
-            "title": "Bonds",
-            "symbols": [
-              {
-                "s": "CBOT:ZB1!",
-                "d": "T-Bond"
-              },
-              {
-                "s": "CBOT:UB1!",
-                "d": "Ultra T-Bond"
-              },
-              {
-                "s": "EUREX:FGBL1!",
-                "d": "Euro Bund"
-              },
-              {
-                "s": "EUREX:FBTP1!",
-                "d": "Euro BTP"
-              },
-              {
-                "s": "EUREX:FGBM1!",
-                "d": "Euro BOBL"
-              }
-            ],
-            "originalTitle": "Bonds"
-          },
-          {
-            "title": "Forex",
-            "symbols": [
-              {
-                "s": "FX:EURUSD",
-                "d": "EUR to USD"
-              },
-              {
-                "s": "FX:GBPUSD",
-                "d": "GBP to USD"
-              },
-              {
-                "s": "FX:USDJPY",
-                "d": "USD to JPY"
-              },
-              {
-                "s": "FX:USDCHF",
-                "d": "USD to CHF"
-              },
-              {
-                "s": "FX:AUDUSD",
-                "d": "AUD to USD"
-              },
-              {
-                "s": "FX:USDCAD",
-                "d": "USD to CAD"
-              }
-            ],
-            "originalTitle": "Forex"
-          }
-          ]
+            ]
           }
         </script>
       </div>
-      <!-- Third Widget (Technical Analysis) -->
       <div class="tradingview-widget-container technical-analysis">
         <div class="tradingview-widget-container__widget"></div>
         <script
@@ -260,18 +295,24 @@
           async
         >
           {
-          "interval": "1m",
-          "width": "100%",
-          "isTransparent": false,
-          "height": "100%",
-          "symbol": "NASDAQ:AAPL",
-          "showIntervalTabs": true,
-          "displayMode": "single",
-          "locale": "en",
-          "colorTheme": "light"
+            "interval": "1m",
+            "width": "100%",
+            "isTransparent": false,
+            "height": "500", /* CHANGED: Set to match the CSS height */
+            "symbol": "NASDAQ:AAPL",
+            "showIntervalTabs": true,
+            "displayMode": "single",
+            "locale": "en",
+            "colorTheme": "light"
           }
         </script>
       </div>
     </div>
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById("mobileNav");
+        nav.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>
