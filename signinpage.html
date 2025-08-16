@@ -1,62 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo Sign-in | Stock Hub</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .container {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 300px;
-    }
-    h2 {
-      margin-bottom: 1rem;
-    }
-    input {
-      width: 100%;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      background: #007bff;
-      color: #fff;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-    .note {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h2>Demo Sign-in</h2>
-    <input type="text" placeholder="Enter your name">
-    <button onclick="alert('Demo only: No real login')">Sign In</button>
-    <p class="note">⚠️ This is a <b>demo educational project</b>.  
-    No real accounts or passwords are collected.</p>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>StockHub - Sign In</title>
+    <style>
+      /* Global Styles */
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+        background-image: url(img/space-desktop.webp);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        position: relative;
+      }
+
+      /* Dark Overlay */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+      }
+
+      /* Content wrapper (keeps everything above overlay) */
+      .content {
+        display: flex;
+        flex: 1;
+        width: 100%;
+        z-index: 2;
+        position: relative;
+      }
+
+      /* Left Side */
+      .left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px;
+        text-align: center;
+      }
+      .hero {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      /* Right Side */
+      .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+      }
+
+      .right h2 {
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+      .logo1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+      .logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        z-index: 1000;
+        transition: color 0.3s ease;
+      }
+
+      .logo:hover {
+        color: #ddd;
+      }
+
+      /* Social Login Buttons */
+      .social-login {
+        display: flex;
+        gap: 10px;
+      }
+
+      .social-login button {
+        border: 1px solid #ccc;
+        background: #fff;
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+
+      .social-login button:hover {
+        background-color: #f1f1f1;
+        border-color: #999;
+      }
+
+      .social-login img {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* Buttons */
+      .btn1 {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        background-color: #ffffff;
+        color: #000000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn1:hover {
+        background: rgb(160, 160, 160);
+      }
+
+      /* Close button */
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        background: none;
+        border: none;
+        z-index: 100;
+      }
+
+      .close-btn:hover {
+        color: rgb(160, 160, 160);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column;
+          background-image: url(img/space-phone.webp);
+        }
+
+        .content {
+          flex-direction: column;
+        }
+
+        .left {
+          flex: 0.5;
+          min-height: 200px;
+        }
+
+        .hero {
+          display: none;
+        }
+
+        .right {
+          flex: 1.5;
+          justify-content: flex-start;
+          padding: 50px 20px;
+        }
+
+        .close-btn {
+          top: 20px;
+          right: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="left">
+        <a href="index.html">
+          <h1 class="logo1">STOCK HUB</h1>
+        </a>
+        <h1 class="hero">Look first / Then leap.</h1>
+      </div>
+
+      <div class="right">
+        <a href="index.html" class="close-btn">×</a>
+
+        <h2>Demo Sign-In Page</h2>
+        <p style="color: #ccc; text-align: center; max-width: 300px">
+          ⚠️ This is a demo page for design purposes only. No real accounts,
+          passwords, or sign-ins are required.
+        </p>
+        <br />
+
+        <div class="social-login">
+          <button><img src="/img/google.png" alt="Google" /></button>
+          <button>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+              alt="Facebook"
+            />
+          </button>
+          <button>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+              alt="Apple"
+            />
+          </button>
+          <button>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+              alt="LinkedIn"
+            />
+          </button>
+        </div>
+
+        <div
+          class="demo-box"
+          style="
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px dashed #888;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 300px;
+          "
+        >
+          <p style="color: #fff">
+            Instead of signing in, click below to continue.
+          </p>
+        </div>
+        <div
+          class="demo-box"
+          style="
+            margin-top: 20px;
+            padding: 15px;
+            text-align: center;
+            max-width: 300px;
+          "
+        >
+          <p style="color: #fff">
+            <a href="index.html" class="btn1">Go to Home</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
