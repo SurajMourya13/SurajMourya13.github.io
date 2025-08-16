@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>StockHub</title>
+    <style>
+
+      header{
+        padding: 8px 20px;
+      }
+      .logo1 {
+    text-decoration: none;
+}
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: 3fr 1fr; /* Chart takes 75%, sidebar 25% */
+        grid-template-rows: auto auto;
+        gap: 10px;
+        width: 100vw;
+        height: 95vh;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .chart-widget {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+        width: 100%;
+        height: 100%;
+      }
+
+      .market-overview,
+      .technical-analysis {
+        grid-column: 2 / 3;
+        width: 100%;
+      }
+
+      .market-overview {
+        grid-row: 1 / 2;
+        height: 50%;
+      }
+
+      .technical-analysis {
+        grid-row: 2 / 3;
+        height: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo1">
+
+          <div class="logo">STOCK HUB</div>
+      </a>
+    <nav>
+      <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search stocks..." onkeyup="searchStocks()">
+        <button class="search-btn"><i class="fa fa-search"></i></button> 
+      </div>
+      <div class="user-icon">
+        <a href="signinpage.html">
+          <i class="fa fa-user"></i> 
+        </a>
+      <!-- Or use an <img> -->
+  </div>
+      <a href="product.html">Products</a>
+      <a href="stockhub.html">Markets</a>
+      <a href="news.html" target="_blank">News</a>
+      <a href="brokerpage.html">Brokers</a>
+      <div class="dropdown">
+        <a href="#">More</a>
+        <div class="dropdown-menu">
+             <a href="#">Settings</a>
+              <a href="#">Help</a>
+        </div>
+      </div>
+    </nav>
+    
+  </header>
+    <div class="grid-container">
+      <!-- First Widget (Main Chart) -->
+      <div class="tradingview-widget-container chart-widget">
+        <div class="tradingview-widget-container__widget"></div>
+        <script
+          type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"
+          async
+        >
+          {
+          "autosize": true,
+          "symbol": "NASDAQ:AAPL",
+          "interval": "D",
+          "timezone": "Etc/UTC",
+          "theme": "light",
+          "style": "1",
+          "locale": "en",
+          "hide_side_toolbar": false,
+          "allow_symbol_change": true,
+          "calendar": false,
+          "show_popup_button": true,
+          "popup_width": "1000",
+          "popup_height": "650",
+          "support_host": "https://www.tradingview.com"
+          }
+        </script>
+      </div>
+
+      <!-- Second Widget (Market Overview) -->
+      <div class="tradingview-widget-container market-overview">
+        <div class="tradingview-widget-container__widget"></div>
+        <script
+          type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+          async
+        >
+          {
+          "colorTheme": "light",
+          "dateRange": "12M",
+          "showChart": false,
+          "locale": "en",
+          "largeChartUrl": "",
+          "isTransparent": false,
+          "showSymbolLogo": true,
+          "showFloatingTooltip": false,
+          "width": "100%",
+          "height": "100%",
+          "tabs": [
+          {
+            "title": "Indices",
+            "symbols": [
+              {
+                "s": "FOREXCOM:SPXUSD",
+                "d": "S&P 500 Index"
+              },
+              {
+                "s": "FOREXCOM:NSXUSD",
+                "d": "US 100 Cash CFD"
+              },
+              {
+                "s": "FOREXCOM:DJI",
+                "d": "Dow Jones Industrial Average Index"
+              },
+              {
+                "s": "INDEX:NKY",
+                "d": "Japan 225"
+              },
+              {
+                "s": "INDEX:DEU40",
+                "d": "DAX Index"
+              },
+              {
+                "s": "FOREXCOM:UKXGBP",
+                "d": "FTSE 100 Index"
+              }
+            ],
+            "originalTitle": "Indices"
+          },
+          {
+            "title": "Futures",
+            "symbols": [
+              {
+                "s": "CME_MINI:ES1!",
+                "d": "S&P 500"
+              },
+              {
+                "s": "CME:6E1!",
+                "d": "Euro"
+              },
+              {
+                "s": "COMEX:GC1!",
+                "d": "Gold"
+              },
+              {
+                "s": "NYMEX:CL1!",
+                "d": "WTI Crude Oil"
+              },
+              {
+                "s": "NYMEX:NG1!",
+                "d": "Gas"
+              },
+              {
+                "s": "CBOT:ZC1!",
+                "d": "Corn"
+              }
+            ],
+            "originalTitle": "Futures"
+          },
+          {
+            "title": "Bonds",
+            "symbols": [
+              {
+                "s": "CBOT:ZB1!",
+                "d": "T-Bond"
+              },
+              {
+                "s": "CBOT:UB1!",
+                "d": "Ultra T-Bond"
+              },
+              {
+                "s": "EUREX:FGBL1!",
+                "d": "Euro Bund"
+              },
+              {
+                "s": "EUREX:FBTP1!",
+                "d": "Euro BTP"
+              },
+              {
+                "s": "EUREX:FGBM1!",
+                "d": "Euro BOBL"
+              }
+            ],
+            "originalTitle": "Bonds"
+          },
+          {
+            "title": "Forex",
+            "symbols": [
+              {
+                "s": "FX:EURUSD",
+                "d": "EUR to USD"
+              },
+              {
+                "s": "FX:GBPUSD",
+                "d": "GBP to USD"
+              },
+              {
+                "s": "FX:USDJPY",
+                "d": "USD to JPY"
+              },
+              {
+                "s": "FX:USDCHF",
+                "d": "USD to CHF"
+              },
+              {
+                "s": "FX:AUDUSD",
+                "d": "AUD to USD"
+              },
+              {
+                "s": "FX:USDCAD",
+                "d": "USD to CAD"
+              }
+            ],
+            "originalTitle": "Forex"
+          }
+          ]
+          }
+        </script>
+      </div>
+      <!-- Third Widget (Technical Analysis) -->
+      <div class="tradingview-widget-container technical-analysis">
+        <div class="tradingview-widget-container__widget"></div>
+        <script
+          type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js"
+          async
+        >
+          {
+          "interval": "1m",
+          "width": "100%",
+          "isTransparent": false,
+          "height": "100%",
+          "symbol": "NASDAQ:AAPL",
+          "showIntervalTabs": true,
+          "displayMode": "single",
+          "locale": "en",
+          "colorTheme": "light"
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

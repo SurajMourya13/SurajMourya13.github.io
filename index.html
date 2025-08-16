@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Stock Hub</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <div class="main">
+      <header>
+        <a href="index.html" class="logo">STOCK HUB</a>
+        <button class="hamburger-btn" aria-label="Toggle navigation menu">
+          <i class="fa fa-bars"></i>
+        </button>
+        <nav>
+          <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search stocks..." />
+            <button class="search-btn"><i class="fa fa-search"></i></button>
+          </div>
+          <div class="user-icon">
+            <a href="signinpage.html">
+              <i class="fa fa-user"></i>
+            </a>
+          </div>
+          <a href="product.html">Products</a>
+          <a href="stockhub.html">Markets</a>
+          <a href="news.html" target="_blank">News</a>
+          <a href="brokerpage.html">Brokers</a>
+          <div class="dropdown">
+            <a href="#">More</a>
+            <div class="dropdown-menu">
+              <a href="#">Settings</a>
+              <a href="#">Help</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>
+            Look first /<br />
+            Then leap.
+          </h1>
+          <p>The best trades require research, then commitment.</p>
+          <a href="signinpage.html" class="cta-button">Get started for free</a>
+          <p class="sub-text">$0 forever, no credit card needed</p>
+        </div>
+      </section>
+    </div>
+    <section class="market-section">
+      <div class="market-content">
+        <h2>Where the world does markets</h2>
+        <p>
+          Join 100 million traders and investors taking the future into their
+          own hands.
+        </p>
+
+        <nav class="market-nav">
+          <button>Chart</button>
+          <button>Trade</button>
+          <button>Screen</button>
+          <button>Analyze</button>
+          <button>Learn</button>
+          <button>Chat</button>
+        </nav>
+
+        <div class="media-container">
+          <video autoplay muted loop playsinline>
+            <source src="/video/homevideo.webm" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+    <!-- Explore More Button -->
+    <div class="explore-more-container">
+      <a href="stockhub.html" class="explore-more-btn">Explore More</a>
+    </div>
+
+    <!-- Terms & Conditions Section -->
+    <footer class="terms-section">
+      <h3>Terms & Conditions</h3>
+      <p>
+        By using Stock Hub, you agree to our terms and policies. We do not
+        provide financial advice. Investments are subject to market risk. Read
+        our full <a href="#">Terms of Service</a> and
+        <a href="#">Privacy Policy</a> before proceeding.
+      </p>
+      <p>&copy; 2025 Stock Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Hamburger menu functionality
+      $(document).ready(function () {
+        const hamburgerBtn = $(".hamburger-btn");
+        const mainNav = $("nav");
+
+        hamburgerBtn.on("click", function () {
+          mainNav.toggleClass("active");
+          $(this).find("i").toggleClass("fa-bars fa-times");
+        });
+
+        $(document).on("click touchstart", function (e) {
+          if (
+            mainNav.hasClass("active") &&
+            !$(e.target).closest("header").length
+          ) {
+            mainNav.removeClass("active");
+            hamburgerBtn.find("i").removeClass("fa-times").addClass("fa-bars");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

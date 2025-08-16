@@ -1,0 +1,445 @@
+/* --- Global Styles --- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #000000;
+}
+
+.main {
+  /* background-image: url("/img/homepage.webp"); */
+  background-image: url(img/space-desktop.webp);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: max(1200px, 100vw);
+  height: 100vh;
+  position: relative;
+}
+
+/* --- Header and Navigation --- */
+header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.2);
+  /* backdrop-filter: blur(10px); */
+  position: relative;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  color: white;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.hamburger-btn {
+  display: none; /* Hide on desktop */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1001; /* Ensure it's on top of other elements */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  flex: 1;
+  font-size: 1rem;
+  border-radius: 20px;
+  background: transparent;
+  color: white;
+  caret-color: white;
+}
+
+.search-container input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 5px;
+  color: white;
+  transition: color 0.3s ease;
+}
+.search-btn:hover {
+  color: #00c3ff;
+}
+
+.dropdown {
+  position: relative;
+  color: white;
+}
+
+.dropdown-menu {
+  right: 0;
+  left: auto;
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  color: white;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.user-icon {
+  font-size: 1.5rem;
+  padding: 5px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+/* --- Hero Section --- */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: white;
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  /* backdrop-filter: blur(10px); */
+}
+
+.hero-content {
+  max-width: 600px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 5.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  background: whitesmoke;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  background: rgb(160, 160, 160);
+  transform: scale(1.05);
+}
+
+.sub-text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Market Section --- */
+.market-section {
+  /* background: #000000; */
+  background: rgba(0, 0, 0, 0.2);
+  background-image: url(img/aurora-background.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.market-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.market-content h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.market-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+/* Updated styles for horizontal buttons */
+.market-nav {
+  display: flex;
+  flex-wrap: wrap; /* Allows buttons to wrap to next line on smaller screens */
+  gap: 10px; /* Space between buttons */
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.market-nav button {
+  color: rgb(0, 0, 0);
+  background: whitesmoke;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Updated hover and active state */
+.market-nav button:hover {
+  background: rgb(160, 160, 160);
+  transform: none; /* Removed the scaling effect */
+}
+
+.media-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.media-container video {
+  width: 100%;
+  max-width: 1080px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* --- Explore More Button --- */
+.explore-more-container {
+  text-align: center;
+  background-color: #000000;
+  margin: 10px 10px;
+}
+
+.explore-more-btn {
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  background: whitesmoke;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.explore-more-btn:hover {
+  background: rgb(160, 160, 160);
+  transform: scale(1.05);
+}
+
+/* --- Terms & Conditions Section --- */
+.terms-section {
+  background: #000000;
+  color: #bbb;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+}
+
+.terms-section h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.terms-section a {
+  color: #00c3ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.terms-section a:hover {
+  text-decoration: underline;
+}
+
+/* --- Responsive Mobile Styles (max-width: 768px) --- */
+@media (max-width: 1000px) {
+  .main {
+    background-size: cover;
+    background-position: top center;
+    background-image: url(img/space-phone.webp);
+  }
+
+  /* Adjust header for mobile to hide nav and show hamburger */
+  header {
+    flex-wrap: wrap; /* Allows items to wrap if needed */
+  }
+
+  .hamburger-btn {
+    display: block; /* Show hamburger menu on mobile */
+    margin-left: auto; /* Push to the right */
+  }
+
+  .search-container {
+    display: none; /* Hide search bar initially on mobile */
+  }
+
+  nav {
+    display: none; /* Hide navigation links by default */
+    flex-direction: column;
+    width: 100%; /* Take full width */
+    position: absolute;
+    top: 100%; /* Position below the header */
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px 0;
+  }
+
+  nav.active {
+    display: flex; /* Show navigation links when active */
+    animation: slideIn 0.3s ease-in-out forwards;
+  }
+
+  /* Define the sliding animation */
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  nav a,
+  .dropdown {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .dropdown-menu {
+    position: static; /* Make dropdown flow in the document on mobile */
+    box-shadow: none;
+    background-color: transparent;
+    width: 100%;
+  }
+
+  .user-icon {
+    margin: 10px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 4.2rem;
+  }
+
+  .hero-content p {
+    font-size: 1.3rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .market-content h2 {
+    font-size: 4.2rem;
+  }
+
+  .market-content p {
+    font-size: 1.3rem;
+  }
+
+  .market-nav {
+    /* FIX: Explicitly set flex-direction to row to override any parent styling */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust as needed */
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .market-nav button {
+    font-size: 0.9rem;
+    padding: 10px 25px;
+    margin: 3px -3px;
+  }
+
+  .market-section {
+    padding-top: 290px;
+  }
+
+  .media-container video {
+    height: auto;
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f9f9f9;
+
+      }
+      .news-container {
+        width: 100%;
+        height: 100vh; /* Fullscreen */
+      }
+
+      .logo1 {
+    text-decoration: none;
+}
+    </style>
+    <title>Stock Hub News</title>
+  </head>
+  <body>
+    <header>
+        <a href="index.html" class="logo1">
+
+            <div class="logo">STOCK HUB</div>
+        </a>
+      <nav>
+        <div class="search-container">
+          <input type="text" id="searchBar" placeholder="Search stocks..." onkeyup="searchStocks()">
+          <button class="search-btn"><i class="fa fa-search"></i></button> 
+        </div>
+        <div class="user-icon">
+          <a href="signinpage.html">
+            <i class="fa fa-user"></i> 
+          </a>
+        <!-- Or use an <img> -->
+    </div>
+        <a href="product.html">Products</a>
+        <a href="stockhub.html">Markets</a>
+        <a href="news.html" target="_blank">News</a>
+        <a href="brokerpage.html">Brokers</a>
+        <div class="dropdown">
+          <a href="#">More</a>
+          <div class="dropdown-menu">
+               <a href="#">Settings</a>
+                <a href="#">Help</a>
+          </div>
+        </div>
+      </nav>
+      
+    </header>
+
+    <div class="news-container">
+      <script
+        type="text/javascript"
+        src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
+        async
+      >
+        {
+            "feedMode": "all_symbols",
+            "colorTheme": "light",
+            "isTransparent": false,
+            "displayMode": "regular",
+            "width": "100%",
+            "height": "100%"
+        }
+      </script>
+    </div>
+  </body>
+</html>

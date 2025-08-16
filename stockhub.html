@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Stock Hub</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo1">
+        <div class="logo">STOCK HUB</div>
+      </a>
+      <button class="hamburger-btn" aria-label="Toggle navigation menu">
+        <i class="fa fa-bars"></i>
+      </button>
+      <nav>
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchBar"
+            placeholder="Search stocks..."
+            onkeyup="searchStocks()"
+          />
+          <button class="search-btn"><i class="fa fa-search"></i></button>
+        </div>
+        <div class="user-icon">
+          <a href="signinpage.html">
+            <i class="fa fa-user"></i>
+          </a>
+        </div>
+        <a href="product.html">Products</a>
+        <a href="stockhub.html">Markets</a>
+        <a href="news.html" target="_blank">News</a>
+        <a href="brokerpage.html">Brokers</a>
+        <div class="dropdown">
+          <a href="#">More</a>
+          <div class="dropdown-menu">
+            <a href="#">Settings</a>
+            <a href="#">Help</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <h1>Markets, everywhere</h1>
+
+    <main>
+      <section>
+        <h2 class="section-title">Global Stocks</h2>
+        <div class="cards-container">
+          <button class="scroll-btn left-btn">&lt;</button>
+          <div class="cards">
+            <div class="card" onclick="loadStock('AAPL')" id="global1">
+              <div class="card-header">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                  alt="Apple Logo"
+                  class="stock-logo"
+                />
+                <h3>Apple (AAPL)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="global2" onclick="loadStock('MSFT')">
+              <div class="card-header">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                  alt="Microsoft Logo"
+                  class="stock-logo"
+                />
+                <h3>Microsoft (MSFT)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="global3" onclick="loadStock('TSLA')">
+              <div class="card-header">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg"
+                  alt="Tesla Logo"
+                  class="stock-logo"
+                />
+                <h3>Tesla (TSLA)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="global4" onclick="loadStock('NVDA')">
+              <div class="card-header">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/sco/thumb/2/21/Nvidia_logo.svg/1920px-Nvidia_logo.svg.png"
+                  alt="NVIDIA"
+                  class="stock-logo"
+                />
+                <h3>NVIDIA (NVDA)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="global5" onclick="loadStock('AMZN')">
+              <div class="card-header">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+                  alt="Amazon"
+                  class="stock-logo"
+                />
+                <h3>Amazon (AMZN)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="global6" onclick="loadStock('GOOGL')">
+              <div class="card-header">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                  alt="Google"
+                  class="stock-logo"
+                />
+                <h3>Alphabet (GOOGL)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="global7" onclick="loadStock('META')">
+              <div class="card-header">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png"
+                  alt="Meta"
+                  class="stock-logo"
+                />
+                <h3>Meta (META)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="global8" onclick="loadStock('BRK.B')">
+              <div class="card-header">
+                <img
+                  src="https://logo.clearbit.com/berkshirehathaway.com"
+                  alt="Berkshire Hathaway"
+                  class="stock-logo"
+                />
+                <h3>Berkshire <br />Hathaway (BRK.B)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="global9" onclick="loadStock('V')">
+              <div class="card-header">
+                <img
+                  src="https://logo.clearbit.com/visa.com"
+                  alt="Visa"
+                  class="stock-logo"
+                />
+                <h3>Visa (V)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="global10" onclick="loadStock('JNJ')">
+              <div class="card-header">
+                <img
+                  src="https://logo.clearbit.com/jnj.com"
+                  alt="Johnson & Johnson"
+                  class="stock-logo"
+                />
+                <h3>Johnson & <br />Johnson (JNJ)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+          </div>
+          <button class="scroll-btn right-btn">&gt;</button>
+        </div>
+        <div id="iframe-stock" style="margin-top: 20px"></div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Cryptocurrencies</h2>
+        <div class="cards-container">
+          <button class="scroll-btn left-btn">&lt;</button>
+          <div class="cards">
+            <div class="card" id="crypto1" onclick="loadCryptoChart('BTCUSD')">
+              <div class="card-header">
+                <img
+                  class="stock-logo"
+                  src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg"
+                  alt="Bitcoin Logo"
+                />
+                <h3>Bitcoin (BTCUSD)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="crypto2" onclick="loadCryptoChart('ETHUSD')">
+              <div class="card-header">
+                <img
+                  class="stock-logo"
+                  src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg"
+                  alt="Ethereum Logo"
+                />
+                <h3>Ethereum (ETHUSD)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="crypto3" onclick="loadCryptoChart('BNBUSD')">
+              <div class="card-header">
+                <img
+                  class="stock-logo"
+                  src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Binance-coin-bnb-logo.png"
+                  alt="Binance Coin Logo"
+                />
+                <h3>Binance Coin (BNBUSD)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="crypto4" onclick="loadCryptoChart('XRPUSD')">
+              <div class="card-header">
+                <img
+                  class="stock-logo"
+                  src="https://upload.wikimedia.org/wikipedia/commons/6/6f/XRP_Logo.svg"
+                  alt="Ripple Logo"
+                />
+                <h3>Ripple (XRPUSD)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="crypto5" onclick="loadCryptoChart('ADAUSD')">
+              <div class="card-header">
+                <img
+                  class="stock-logo"
+                  src="https://upload.wikimedia.org/wikipedia/commons/3/39/Cardano_Logo.svg"
+                  alt="Cardano Logo"
+                />
+                <h3>Cardano (ADAUSD)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="crypto6" onclick="loadCryptoChart('SOLUSD')">
+              <div class="card-header">
+                <img
+                  class="stock-logo"
+                  src="https://upload.wikimedia.org/wikipedia/en/b/b9/Solana_logo.png"
+                  alt="Solana Logo"
+                />
+                <h3>Solana (SOLUSD)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="crypto7" onclick="loadCryptoChart('DOTUSD')">
+              <div class="card-header">
+                <img
+                  class="stock-logo"
+                  src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Polkadot_New_Logo.svg"
+                  alt="Polkadot Logo"
+                />
+                <h3>Polkadot (DOTUSD)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="crypto8" onclick="loadCryptoChart('DOGEUSD')">
+              <div class="card-header">
+                <img
+                  class="stock-logo"
+                  src="https://upload.wikimedia.org/wikipedia/en/d/d0/Dogecoin_Logo.png"
+                  alt="Dogecoin Logo"
+                />
+                <h3>Dogecoin (DOGEUSD)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div
+              class="card"
+              id="crypto9"
+              onclick="loadCryptoChart('MATICUSD')"
+            >
+              <div class="card-header">
+                <img
+                  class="stock-logo"
+                  src="https://upload.wikimedia.org/wikipedia/commons/d/de/Polygon_Blockchain_logo.png"
+                  alt="Polygon Logo"
+                />
+                <h3>Polygon (MATICUSD)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+
+            <div class="card" id="crypto10" onclick="loadCryptoChart('LTCUSD')">
+              <div class="card-header">
+                <img
+                  class="stock-logo"
+                  src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Litecoin.svg"
+                  alt="Litecoin Logo"
+                />
+                <h3>Litecoin (LTCUSD)</h3>
+              </div>
+              <p>Loading...</p>
+            </div>
+          </div>
+          <button class="scroll-btn right-btn">&gt;</button>
+        </div>
+        <div id="iframe-crypto" style="margin-top: 20px"></div>
+      </section>
+      <footer class="terms-section">
+        <h3>Terms & Conditions</h3>
+        <p>
+          By using Stock Hub, you agree to our terms and policies. We do not
+          provide financial advice. Investments are subject to market risk. Read
+          our full <a href="#">Terms of Service</a> and
+          <a href="#">Privacy Policy</a> before proceeding.
+        </p>
+        <p>&copy; 2025 Stock Hub. All rights reserved.</p>
+      </footer>
+    </main>
+
+    <script src="stockhub.js"></script>
+  </body>
+</html>

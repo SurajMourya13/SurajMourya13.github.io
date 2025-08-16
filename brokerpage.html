@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="broker.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Stock Hub Brokers</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo-link">
+        <!-- Changed class for consistency -->
+        <div class="logo">STOCK HUB</div>
+      </a>
+      <!-- Hamburger Button for Mobile -->
+      <button class="hamburger-btn" aria-label="Toggle navigation menu">
+        <i class="fa fa-bars"></i>
+      </button>
+      <nav class="main-nav">
+        <!-- Added main-nav class -->
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchBar"
+            placeholder="Search stocks..."
+            onkeyup="searchStocks()"
+          />
+          <button class="search-btn"><i class="fa fa-search"></i></button>
+        </div>
+        <div class="user-icon">
+          <a href="signinpage.html">
+            <i class="fa fa-user"></i>
+          </a>
+        </div>
+        <a href="product.html">Products</a>
+        <a href="stockhub.html">Markets</a>
+        <a href="news.html" target="_blank">News</a>
+        <a href="brokerpage.html">Brokers</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-link"
+            >More <i class="fas fa-caret-down"></i
+          ></a>
+          <!-- Added dropdown-link and caret icon -->
+          <div class="dropdown-menu">
+            <a href="#" >Settings</a>
+            <a href="#" >Help</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Made to trade</h1>
+        <div class="stats">
+          <div class="stat-box">
+            <span class="stats1">2 960 242</span>
+            <br />
+            <span class="stats2">traders connected through us</span>
+          </div>
+          <div class="stat-box">
+            <span class="stats4" id="orderCount">274 889 263</span>
+            <br />
+            <span class="stats3">successfully executed live orders</span>
+          </div>
+          <!-- The inline script for orderCount will be moved to brokerpage.js -->
+        </div>
+      </section>
+
+      <section class="brokers">
+        <div class="broker-card">
+          <div class="broker-info">
+            <h2>BingX</h2>
+            <p>Trade assets: Crypto</p>
+            <div class="rating">
+              4.5 ★ Great | 14.6K Reviews | 101.2K Accounts
+            </div>
+            <p class="promo">
+              Options trading is now available through TradeStation
+            </p>
+            <a href="https://bingx.com/en/">
+              <button>Open Account</button>
+            </a>
+            <button>Learn more</button>
+          </div>
+          <div class="broker-logo">
+            <img src="/img/BingX_updated.svg" alt="BingX" />
+          </div>
+        </div>
+
+        <!-- TradeStation -->
+        <div class="broker-card featured">
+          <div class="broker-info">
+            <h2>TradeStation</h2>
+            <p>Options trading is now available</p>
+            <div class="rating">
+              4.5 ★ Great | 14.6K Reviews | 101.2K Accounts
+            </div>
+            <p class="promo">
+              Options trading is now available through TradeStation
+            </p>
+            <a href="https://www.tradestation.com/">
+              <button>Open Account</button>
+            </a>
+            <button>Learn more</button>
+          </div>
+          <div class="broker-logo">
+            <img src="/img/tradestation_new.svg" alt="TradeStation" />
+          </div>
+        </div>
+
+        <!-- Dhan -->
+        <div class="broker-card featured">
+          <div class="broker-info">
+            <h2>Dhan <span class="tag platinum"></span></h2>
+            <p>Tradable assets: Stocks, Futures, Options</p>
+            <div class="rating">
+              4.5 ★ Great | 14.6K Reviews | 101.2K Accounts
+            </div>
+            <p class="promo">
+              Options trading is now available through TradeStation
+            </p>
+            <a href="https://dhan.co/">
+              <button>Open Account</button>
+            </a>
+            <button>Learn more</button>
+          </div>
+          <div class="broker-logo">
+            <img src="/img/Dnan_2023.svg" alt="TradeStation" />
+          </div>
+        </div>
+
+        <!-- AMP Futures -->
+        <div class="broker-card">
+          <div class="broker-info">
+            <h2>AMP Futures</h2>
+            <p>Trade assets: Futures</p>
+            <div class="rating">
+              4.5 ★ Great | 14.6K Reviews | 101.2K Accounts
+            </div>
+            <p class="promo">
+              Options trading is now available through TradeStation
+            </p>
+            <a href="https://www.ampfutures.com/">
+              <button>Open Account</button>
+            </a>
+            <button>Learn more</button>
+          </div>
+          <div class="broker-logo">
+            <img src="/img/Amp_updated.svg" alt="AMP Futures" />
+          </div>
+        </div>
+
+        <!-- Interactive broker -->
+        <div class="broker-card featured">
+          <div class="broker-info">
+            <h2>Interactive Brokers <span class="tag platinum"></span></h2>
+            <p>Tradable assets: Stocks, Futures, Options</p>
+            <div class="rating">
+              4.5 ★ Great | 14.6K Reviews | 101.2K Accounts
+            </div>
+            <p class="promo">
+              Options trading is now available through TradeStation
+            </p>
+            <a href="https://www.interactivebrokers.com/">
+              <button>Open Account</button>
+            </a>
+            <button>Learn more</button>
+          </div>
+          <div class="broker-logo">
+            <img src="/img/Interactive_.svg" alt="TradeStation" />
+          </div>
+        </div>
+
+        <!-- Tradovate -->
+        <div class="broker-card featured">
+          <div class="broker-info">
+            <h2>Tradovate <span class="tag platinum"></span></h2>
+            <p>Tradable assets: Stocks, Futures, Options</p>
+            <div class="rating">
+              4.5 ★ Great | 14.6K Reviews | 101.2K Accounts
+            </div>
+            <p class="promo">
+              Options trading is now available through TradeStation
+            </p>
+            <a href="https://www.tradovate.com/">
+              <button>Open Account</button>
+            </a>
+            <button>Learn more</button>
+          </div>
+          <div class="broker-logo">
+            <img src="/img/Tradovate_updated.svg" alt="TradeStation" />
+          </div>
+        </div>
+
+        <!-- Add more brokers here -->
+      </section>
+      <!-- Terms & Conditions Section -->
+      <footer class="terms-section">
+        <h3>Terms & Conditions</h3>
+        <p>
+          By using Stock Hub, you agree to our terms and policies. We do not
+          provide financial advice. Investments are subject to market risk. Read
+          our full <a href="#">Terms of Service</a> and
+          <a href="#">Privacy Policy</a> before proceeding.
+        </p>
+        <p>&copy; 2025 Stock Hub. All rights reserved.</p>
+      </footer>
+    </main>
+    <script src="brokerpage.js"></script>
+    <!-- Link to the new JS file -->
+  </body>
+</html>

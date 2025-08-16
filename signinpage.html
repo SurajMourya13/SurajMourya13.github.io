@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>StockHub - Sign In</title>
+    <style>
+      /* Global Styles */
+
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        display: flex;
+        height: 100vh;
+        overflow: hidden; /* Prevents scrollbars */
+
+        /* A single background for the entire page */
+        background-image: url(img/space-desktop.webp);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white; /* Default text color for the entire body */
+        position: relative;
+      }
+
+      /* Single Dark Overlay for the entire body */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3); /* Dark Overlay for readability */
+        z-index: 1;
+      }
+
+      /* Left Side (Text-Based Logo + Background) */
+      .left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px;
+        position: relative;
+        text-align: center;
+        z-index: 2; /* Ensure content is on top of the overlay */
+      }
+      .hero {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      /* Right Side (Sign-In Form) */
+      .right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        position: relative;
+        z-index: 2; /* Ensure content is on top of the overlay */
+      }
+
+      .right h2 {
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+      .logo1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+      .logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        z-index: 1000;
+        transition: color 0.3s ease;
+      }
+
+      .logo:hover {
+        color: #ddd;
+      }
+
+      /* Social Login Buttons */
+      .social-login {
+        display: flex;
+        gap: 10px;
+      }
+
+      .social-login button {
+        border: 1px solid #ccc;
+        background: #fff;
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+
+      .social-login button:hover {
+        background-color: #f1f1f1;
+        border-color: #999;
+      }
+
+      .social-login img {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* Form Styling */
+      .email-login,
+      .signup-form {
+        margin-top: 20px;
+        width: 100%;
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      input,
+      .btn1 {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #cacaca;
+      }
+
+      .btn1 {
+        background-color: #ffffff;
+        color: #000000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn1:hover {
+        background: rgb(160, 160, 160);
+      }
+
+      .signup {
+        margin-top: 20px;
+        font-size: 0.9rem;
+      }
+
+      .signup a {
+        color: #00c3ff;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* Message Box */
+      .message-box {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #333;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 2000;
+        display: none;
+        max-width: 300px;
+        text-align: center;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      .message-box.show {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        background: none;
+        border: none;
+        z-index: 100;
+      }
+
+      .close-btn:hover {
+        color: rgb(160, 160, 160);
+      }
+
+      /* Responsive Styles for Mobile */
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column;
+          background-image: url(img/space-phone.webp);
+        }
+
+        .left {
+          flex: 0.5;
+          min-height: 200px;
+        }
+
+        .left h1 {
+          color: white;
+        }
+
+        .right {
+          flex: 1.5;
+          justify-content: flex-start;
+          padding: 50px 20px;
+        }
+
+        .close-btn {
+          top: 20px;
+          right: 20px;
+        }
+
+        .message-box {
+          width: calc(100% - 40px);
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left">
+      <a href="index.html">
+        <h1 class="logo1">STOCK HUB</h1>
+      </a>
+      <h1 class="hero">Look first / Then leap.</h1>
+    </div>
+
+    <div class="right">
+      <a href="index.html" class="close-btn" onclick="goBack()">×</a>
+
+      <div class="logo-mobile hidden">
+        <img src="img/space-phone.webp" alt="" />
+      </div>
+
+      <div id="messageBox" class="message-box"></div>
+
+      <div id="signInForm">
+        <h2>Sign In</h2>
+        <div class="social-login">
+          <button>
+            <img src="/img/google.png" alt="Google" />
+          </button>
+          <button>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+              alt="Facebook"
+            />
+          </button>
+          <button>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+              alt="Apple"
+            />
+          </button>
+          <button>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+              alt="LinkedIn"
+            />
+          </button>
+        </div>
+        <div class="email-login">
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" required />
+          <button class="btn1 sign-in-btn">Sign In</button>
+        </div>
+        <p class="signup">
+          Don't have an account?
+          <a href="#" onclick="showSignUp(event)">Sign up</a>
+        </p>
+      </div>
+
+      <div id="signUpForm" class="signup-form hidden">
+        <h2>Sign Up</h2>
+        <input type="text" placeholder="Username" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button class="btn1 sign-up-btn">Sign Up</button>
+        <p class="signup">
+          Already have an account?
+          <a href="#" onclick="showSignIn(event)">Sign In</a>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function showMessage(message, duration = 3000) {
+        const messageBox = document.getElementById("messageBox");
+        messageBox.textContent = message;
+        messageBox.classList.add("show");
+        setTimeout(() => {
+          messageBox.classList.remove("show");
+        }, duration);
+      }
+
+      function showSignUp(event) {
+        if (event) event.preventDefault();
+        document.getElementById("signInForm").classList.add("hidden");
+        document.getElementById("signUpForm").classList.remove("hidden");
+      }
+
+      function showSignIn(event) {
+        if (event) event.preventDefault();
+        document.getElementById("signInForm").classList.remove("hidden");
+        document.getElementById("signUpForm").classList.add("hidden");
+      }
+
+      function goBack() {
+        if (document.referrer) {
+          window.location.href = document.referrer;
+        } else {
+          window.history.back();
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelector(".sign-in-btn")
+          .addEventListener("click", function () {
+            const email = document.querySelector(
+              '.email-login input[type="email"]'
+            ).value;
+            const password = document.querySelector(
+              '.email-login input[type="password"]'
+            ).value;
+
+            if (email === "" || password === "") {
+              showMessage("Please enter both email and password.");
+            } else {
+              showMessage("Sign Up successful. Redirecting...", 1500);
+              setTimeout(() => {
+                window.location.href = "stockhub.html";
+              }, 1500);
+            }
+          });
+
+        document
+          .querySelector(".sign-up-btn")
+          .addEventListener("click", function () {
+            const name = document.querySelector(
+              '#signUpForm input[type="text"]'
+            ).value;
+            const email = document.querySelector(
+              '#signUpForm input[type="email"]'
+            ).value;
+            const password = document.querySelector(
+              '#signUpForm input[type="password"]'
+            ).value;
+
+            if (name === "" || email === "" || password === "") {
+              showMessage("Please fill all fields.");
+            } else {
+              showMessage("Sign Up successful. Redirecting...", 1500);
+              setTimeout(() => {
+                window.location.href = "stockhub.html";
+              }, 1500);
+            }
+          });
+      });
+    </script>
+  </body>
+</html>
